@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.output/
+.vercel/
+.tanstack/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+coverage/
+screenshots/
+artifacts/
+attachments/
+.rafiq-termux-reminders.json

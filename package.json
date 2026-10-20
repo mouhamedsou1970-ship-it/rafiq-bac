@@ -1,0 +1,46 @@
+{
+  "name": "rafiq-bac",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "overrides": {
+    "nf3": "0.3.17"
+  },
+  "scripts": {
+    "dev": "vite dev --host 0.0.0.0 --port 8080",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 8081",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test src/lib/bac/schedule.test.ts",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.170.0",
+    "@tanstack/react-start": "^1.168.60",
+    "lucide-react": "^0.510.0",
+    "nitro": "3.0.260610-beta",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.3.0",
+    "vite": "^8.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.16.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^9.20.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^15.15.0",
+    "prettier": "^3.4.0",
+    "typescript-eslint": "^8.56.1"
+  },
+  "version": "0.6.0",
+  "description": "رفيق البكالوريا - مخطط دراسة ذكي لطلبة البكالوريا في الجزائر"
+}
