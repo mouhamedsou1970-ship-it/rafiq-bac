@@ -34,6 +34,7 @@ export function SettingsView() {
   const [testing, setTesting] = useState(false);
   const [wipe, setWipe] = useState(false);
   const [termuxTesting, setTermuxTesting] = useState(false);
+  const isLocalHost = typeof window !== "undefined" && ["localhost", "127.0.0.1"].includes(window.location.hostname);
   const ai = state.settings.ai;
 
   function saveManual() {
@@ -109,6 +110,7 @@ export function SettingsView() {
             else toast(permission === "unsupported" ? "هذا المتصفح لا يدعم إشعارات الويب" : "لم يُمنح إذن الإشعارات");
           }}>⏱ اختبار بعد 10 ثوانٍ</Btn>
         </div>
+        {isLocalHost ? (<>
         <div className="row">
           <Btn kind="ghost" disabled={termuxTesting} onClick={async () => {
             setTermuxTesting(true);
@@ -128,6 +130,7 @@ export function SettingsView() {
         </div>
         <p className="muted">جسر Termux يحفظ مواعيد الحصص في الخادم المحلي ويرسل إشعار Android حتى لو أغلقت Brave، بشرط أن يبقى خادم رفيق في Termux يعمل وألا يوقف Android تطبيق Termux. عند تعديل الجدول أو مدة التذكير تتم المزامنة تلقائيًا.</p>
         {!notificationSupported() ? <p className="muted">المتصفح الحالي لا يوفّر Notification API، لكن جسر Termux يمكنه الاستمرار مستقلًا عن إشعار المتصفح.</p> : null}
+        </>) : null}
         <hr />
         <label className="check"><input type="checkbox" checked={state.assistantMemory.enabled} onChange={(e) => patch((s) => ({ ...s, assistantMemory: { ...s.assistantMemory, enabled: e.target.checked } }))} /> ذاكرة الرفيق بين المحادثات</label>
         <p className="muted">{state.assistantMemory.summary ? `الذاكرة الحالية: ${state.assistantMemory.summary}` : "لا توجد ذاكرة دراسية محفوظة بعد."}</p>
